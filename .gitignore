@@ -1,0 +1,31 @@
+# Ignore all text files except requirements.txt
+*.txt
+!requirements.txt
+!splits*/*.txt
+
+# Ignore specific file types
+*.avi
+*.mp4
+*.jpg
+*.jpeg
+*.png
+*.npy
+*.npz
+*.zip
+*.pkl
+*.pt
+*.z*
+*.tar.*
+
+# Ignore JSON files
+*.json
+
+# Ignore notebook files
+*.ipynb
+
+# Ignore folders
+.conda/
+.idea/
+__pycache__/
+.ipy*/
+pytorch-i3d/
