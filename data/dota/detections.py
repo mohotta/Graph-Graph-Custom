@@ -13,7 +13,7 @@ def parse_args():
     Parse input arguments
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('--video_dir', dest='video_dir', help='The directory to the Dataset', type=str, default="data/dota/processed_videos")
+    parser.add_argument('--video_dir', dest='video_dir', help='The directory to the Dataset', type=str, default="data/dota/new_videos")
     parser.add_argument('--out_dir', dest='out_dir', help='The directory to the output files.', type=str, default="data/dota/detections")
 
     # if len(sys.argv) == 1:

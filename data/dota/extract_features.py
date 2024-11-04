@@ -22,7 +22,7 @@ def parse_args():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('--dota_dir', dest='dota_dir', help='The directory to the Dashcam Accident Dataset', default="data/dota")
-    parser.add_argument('--out_dir', dest='out_dir', help='The directory to the output files.', default="data/dota/features")
+    parser.add_argument('--out_dir', dest='out_dir', help='The directory to the output files.', default="data/dota/obj_feat")
     parser.add_argument('--n_frames', dest='n_frames', help='The number of frames sampled from each video', default=50)
     parser.add_argument('--n_boxes', dest='n_boxes', help='The number of bounding boxes for each frame', default=19)
     parser.add_argument('--dim_feat', dest='dim_feat', help='The dimension of extracted ResNet101 features',
@@ -89,7 +89,7 @@ def extract_features(detections_path, video_path, dest_path, phase):
             video_frames = get_video_frames(video_file, n_frames=args.n_frames)
             detections_file = os.path.join(detections_path, file[:-4] + ".npy")
             detections = np.load(detections_file)
-            label = np.array([0,1])
+            label = np.array([0,1]) if root.split("/")[-1] == "positive" else np.array([1,0])
             feat_file = os.path.join(dest_path, file[:-4] + ".npz")
 
             features_vgg16 = np.zeros((args.n_frames, args.n_boxes + 1, args.dim_feat), dtype=np.float32)
@@ -126,9 +126,9 @@ def run(detections_path, video_path, dest_path):
         os.makedirs(test_path)
 
     # process training set
-    extract_features(detections_path, video_path, train_path, 'training')
+    extract_features(detections_path, os.path.join(video_path, 'training'), train_path, 'training')
     # process testing set
-    extract_features(detections_path, video_path, test_path, 'testing')
+    extract_features(detections_path, os.path.join(video_path, 'testing'), test_path, 'testing')
 
 
 if __name__ == "__main__":
@@ -146,7 +146,7 @@ if __name__ == "__main__":
     )
 
     detections_path = osp.join(args.dota_dir, 'detections')
-    video_path = osp.join(args.dota_dir, 'processed_videos')
+    video_path = osp.join(args.dota_dir, 'new_videos')
     run(detections_path, video_path, args.out_dir)
 
     print("Done!")
