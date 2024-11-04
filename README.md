@@ -11,7 +11,7 @@ pip install -r requirements.txt
 ```
 
 ## Dataset 
-Download the data from [link](https://arizonastateu-my.sharepoint.com/:f:/g/personal/nsthaku1_sundevils_asu_edu/EmbzDlO7GodItqzqcYIfOJQByqO1Xz-fW-F_-7qw4letmA?e=Beq1l8) and place it in `data` folder. There are 3 folders for each dataset: 
+Download the data from [link](https://drive.google.com/drive/folders/1BE_H_BXlOdSflsPxll8dftdB9CuqKRwg?usp=sharing) and place it in `data` folder. There are 3 folders for each dataset: 
 - `obj_feat`: The object data for both datasets is downloaded from [1].
 - `i3d_feat`: We extracted I3D features for all the frames using the code and pretrained model available at [2].
 - `frames_stat`: This contains the resolution for every frame of a video.  
@@ -21,6 +21,11 @@ To train use the following commands:
 DAD dataset- 
 ```python
 python train_dad.py --test_only 0  
+```
+
+DoTA dataset- 
+```python
+python train_dota.py --test_only 0  
 ```
 
 CCD dataset- 
@@ -38,6 +43,11 @@ Use the following command for evaluation:
 DAD dataset- 
 ```python
 python train_dad.py --test_only 1 --checkpoint_model "model_checkpoints/dad_model.pth" 
+```
+
+DoTA dataset- 
+```python
+python train_dota.py --test_only 1 --checkpoint_model "model_checkpoints/dota_model.pth" 
 ```
 
 CCD dataset- 
