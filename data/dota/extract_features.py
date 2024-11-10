@@ -22,7 +22,7 @@ def parse_args():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('--dota_dir', dest='dota_dir', help='The directory to the Dashcam Accident Dataset', default="data/dota")
-    parser.add_argument('--out_dir', dest='out_dir', help='The directory to the output files.', default="data/dota/obj_feat")
+    parser.add_argument('--out_dir', dest='out_dir', help='The directory to the output files.', default="data/dota_ego/obj_feat")
     parser.add_argument('--n_frames', dest='n_frames', help='The number of frames sampled from each video', default=50)
     parser.add_argument('--n_boxes', dest='n_boxes', help='The number of bounding boxes for each frame', default=19)
     parser.add_argument('--dim_feat', dest='dim_feat', help='The dimension of extracted ResNet101 features',

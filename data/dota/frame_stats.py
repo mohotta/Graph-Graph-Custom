@@ -12,8 +12,8 @@ def parse_args():
     Parse input arguments
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('--in_dir', dest='in_dir', help='The directory to the Dataset', type=str, default="data/dota/new_videos")
-    parser.add_argument('--out_dir', dest='out_dir', help='The directory to the output files.', type=str, default="data/dota/frames_stats")
+    parser.add_argument('--in_dir', dest='in_dir', help='The directory to the Dataset', type=str, default="data/dota/ego_videos")
+    parser.add_argument('--out_dir', dest='out_dir', help='The directory to the output files.', type=str, default="data/dota_ego/frames_stats")
 
     # if len(sys.argv) == 1:
     #     parser.print_help()
